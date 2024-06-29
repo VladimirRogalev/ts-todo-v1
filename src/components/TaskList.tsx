@@ -25,16 +25,26 @@ const TaskList = () => {
         setTasks(tasksCopy);
     };
 
+    const createTask = () => {
+        let tasksCopy = [...tasks];
+        const indexTasks = tasks.length+1;
+        tasksCopy.push(`Task ${indexTasks}`);
+        setTasks(tasksCopy)
+    }
+
 
 
         return (
             <div className={'field'}>
-                <button className={'btn new'}>Add Task</button>
+
+                <button className={'btn new'} onClick={createTask}>Add Task</button>
+
                 {tasks.map((t, i) => <Task key={i + 1}
                                                       index={i}
                                                       updateTask={updateTask}
                                                       deleteTask={deleteTask}>{t}</Task>)
                 }</div>
+
         );
 
 };
